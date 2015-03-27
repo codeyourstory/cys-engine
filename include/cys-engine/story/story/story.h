@@ -4,11 +4,13 @@
 #include <string>
 #include <cys-engine/utils/macros.h>
 
+namespace cys {
 namespace story {
   
   class Story {
   public: 
     
+    Story();
     Story(const std::string &title);
     ~Story();
     
@@ -19,6 +21,7 @@ namespace story {
     std::string _title;
   };
   
+}
 }
 
 #endif

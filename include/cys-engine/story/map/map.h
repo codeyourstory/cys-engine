@@ -1,6 +1,7 @@
 #ifndef MAP_H
 #define	MAP_H
 
+namespace cys {
 namespace story {
   
   class Map {
@@ -12,6 +13,7 @@ namespace story {
   private:
   };
   
+}
 }
 
 #endif

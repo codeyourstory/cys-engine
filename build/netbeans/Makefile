@@ -1,3 +1,5 @@
 all:
-	cd ../cmake && cmake . && make
+	cd ../cmake && cmake . && $(MAKE)
 
+clean:
+	cd ../cmake && $(MAKE) clean

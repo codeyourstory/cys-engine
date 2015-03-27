@@ -1,6 +1,11 @@
 #include <cys-engine/story/story/story.h>
 
-using namespace story;
+using namespace cys;
+using namespace cys::story;
+
+Story::Story()
+{
+}
 
 Story::Story(const std::string &title)
 {
