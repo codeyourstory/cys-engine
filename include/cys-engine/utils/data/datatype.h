@@ -27,40 +27,48 @@ namespace data {
 
   struct VariableDefinition {
     VariableType type;
-    std::string name;
+    cys::Uint32 offset;
     
     VariableDefinition();
     VariableDefinition(VariableType type, cys::Uint32 offset);
   };
 
+  class DataType;
+  
   // 
   class Entity {
   public:
+    Entity(DataType *datatype);
     virtual ~Entity();
     
-    virtual void set(std::string name, void *p) = 0; // p is a pointer on the value
-    virtual void *get(std::string name) = 0; // returns a pointer to the value
+    void set(std::string name, void *p); // p is a pointer on the value
+    void *get(std::string name); // returns a pointer to the value
+    
+  protected:
+    DataType *_datatype;
   };
   
   typedef std::map<std::string, VariableDefinition> VariableDefAssoc;
+  typedef Entity *(*EntityFactory)();
   
   class DataType {
     
   public:
     
-    DataType();
+    DataType(std::string name, Entity *(*factory_ptr)());
     ~DataType();
     
-    void define_var(std::string name, VariableType type);
+    void define_var(std::string name, VariableType type, void *struct_addr, void *struct_var_addr);
     
     ACCESS_DEF(name, std::string)
+    ACCESS_DEF(factory, EntityFactory)
     ACCESS_DEF(vars,  VariableDefAssoc)
     
   private:
-    std::string name; // table name for sql, could be used in other classes
-    Entity *(*factory)();
+    std::string _name; // table name for sql, could be used in other classes
+    Entity *(*_factory)();
     
-    VariableDefAssoc vars; // définition des variables/types
+    VariableDefAssoc _vars; // définition des variables/types
     
   };
   

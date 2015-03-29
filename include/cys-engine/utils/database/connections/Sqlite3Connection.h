@@ -1,0 +1,8 @@
+#ifndef CYS_ENGINE__UTILS_DATABASE_CONNECTIONS_SQLITE3CONNECTION_H
+#define	CYS_ENGINE__UTILS_DATABASE_CONNECTIONS_SQLITE3CONNECTION_H
+
+#include <cys-engine/utils/database/AbstractConnection.h>
+
+
+
+#endif

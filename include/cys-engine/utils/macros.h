@@ -27,7 +27,7 @@ type classname::get_##var() {\
 #define ACCESS_DEF(var, type) SETTER_DEF(var, type) GETTER_DEF(var, type)
 
 // both declarations
-#define ACCESS_DECL(classname, var, type) SETTER_DECL(classname, var, type)
+#define ACCESS_DECL(classname, var, type) SETTER_DECL(classname, var, type) GETTER_DECL(classname, var, type)
 
 // ############# 2) Factory Macro #############
 
