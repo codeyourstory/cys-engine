@@ -95,6 +95,11 @@ void *Entity::get(std::string name)
   return ret;
 }
 
+void Entity::_set_datatype(DataType *datatype)
+{
+  _datatype = datatype;
+}
+
 // --
 
 ACCESS_DECL(DataType, name, std::string)

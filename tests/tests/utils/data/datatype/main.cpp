@@ -12,9 +12,11 @@ using namespace cys;
 using namespace cys::data;
 using namespace std;
 
+// definition of the datatype
+DATA_DEF(TestEntity)
 // definition of our entity
 
-class TestEntity {
+class TestEntity : public Entity {
 public:
   
   TestEntity();
@@ -48,7 +50,7 @@ private:
 
 // constructor, destructor
 
-TestEntity::TestEntity()
+TestEntity::TestEntity() : Entity(nullptr)
 {
   _u8 = 0;
   _u16 = 0;
@@ -83,8 +85,6 @@ ACCESS_DECL(TestEntity, str, string)
 FACTORY_DECL(TestEntity)
 
 // Now the Datatype
-
-DATA_DEF(TestEntity)
 DATA_DECL(TestEntity, "test_entity", 
   DATA_DEF_VAR(u8,  UINT8)
   DATA_DEF_VAR(u16, UINT16)
@@ -101,13 +101,49 @@ DATA_DECL(TestEntity, "test_entity",
 
 // -----
 
+#define ASSERT_OK(val) if(val); else { printf("test_failed line %d of file %s\n", __LINE__, __FILE__);exit(1); }
 
 int main(int argc, char** argv)
 {
   DATA(TestEntity) myDatatype;
+  TestEntity my_entity;
   
+  my_entity._set_datatype(&myDatatype); // don't forget this !
   
+  // 1) we test my_entity.set_X(Y) and my_entity.get_X(Y) 
+#define TEST_ENTITY_SET(varname, val) \
+  my_entity.set_##varname(val); \
+  ASSERT_OK(*(my_entity.get_##varname()) == val)
+  
+  TEST_ENTITY_SET(u8, 5)
+  TEST_ENTITY_SET(u16, 6)
+  TEST_ENTITY_SET(u32, 7)
+  TEST_ENTITY_SET(u64, 8)
+    
+  TEST_ENTITY_SET(s8, -42)
+  TEST_ENTITY_SET(s16, 73)
+  TEST_ENTITY_SET(s32, -255)
+  TEST_ENTITY_SET(s64, 99)
+  
+  TEST_ENTITY_SET(str, "yolo")
+    
+  // 2) we test my_entity.set(X, Y) and my_entity.get(X, Y)
+  #define TEST_ENTITY_DYNAMIC_SET(varname, val, type) \
+  type tmp1_##varname = val;\
+  my_entity.set(#varname, &tmp1_##varname); \
+  ASSERT_OK(*( (type *) my_entity.get(#varname)) == val)
+
+  TEST_ENTITY_DYNAMIC_SET(u8, 89, Uint8)
+  TEST_ENTITY_DYNAMIC_SET(u16, 425, Uint16)
+  TEST_ENTITY_DYNAMIC_SET(u32, 745, Uint32)
+  TEST_ENTITY_DYNAMIC_SET(u64, 8785785, Uint64)
+    
+  TEST_ENTITY_DYNAMIC_SET(s8, 55, Sint8)
+  TEST_ENTITY_DYNAMIC_SET(s16, -73, Sint16)
+  TEST_ENTITY_DYNAMIC_SET(s32, 255, Sint32)
+  TEST_ENTITY_DYNAMIC_SET(s64, 99, Sint64)
+  
+  TEST_ENTITY_DYNAMIC_SET(str, "yolo42", string)
   
   return 0;
 }
-

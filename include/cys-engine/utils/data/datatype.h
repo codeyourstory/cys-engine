@@ -44,6 +44,8 @@ namespace data {
     void set(std::string name, void *p); // p is a pointer on the value
     void *get(std::string name); // returns a pointer to the value
     
+    void _set_datatype(DataType *datatype);
+    
   protected:
     DataType *_datatype;
   };
