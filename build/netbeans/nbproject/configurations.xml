@@ -39,6 +39,11 @@
           <df name="01Tmp">
             <in>main.cpp</in>
           </df>
+          <df name="data">
+            <df name="datatype">
+              <in>main.cpp</in>
+            </df>
+          </df>
         </df>
       </df>
     </df>
@@ -132,6 +137,11 @@
       <item path="../../tests/tests/01Tmp/main.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
+      </item>
+      <item path="../../tests/tests/utils/data/datatype/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
     </conf>
   </confs>

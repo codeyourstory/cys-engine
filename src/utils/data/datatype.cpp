@@ -4,6 +4,18 @@
 using namespace cys;
 using namespace cys::data;
 
+VariableDefinition::VariableDefinition()
+{ 
+  this->offset = 0;
+  this->type = UNKNOWN;
+}
+
+VariableDefinition::VariableDefinition(VariableType type, cys::Uint32 offset)
+{
+  this->offset = offset;
+  this->type = type;
+}
+
 Entity::Entity(DataType *datatype)
 {
   _datatype = datatype;
@@ -21,8 +33,8 @@ void Entity::set(std::string name, void *p)
   
   
   if(_datatype && 
-     _datatype->get_vars().find(name) != _datatype->get_vars().end()) {
-    VariableDefinition vardef = _datatype->get_vars().at(name);
+     _datatype->get_vars()->find(name) != _datatype->get_vars()->end()) {
+    VariableDefinition vardef = _datatype->get_vars()->at(name);
     q = (cys::Uint8 *) this;
     q += vardef.offset;
     
@@ -74,8 +86,8 @@ void *Entity::get(std::string name)
   cys::Uint8 *ret = nullptr;
   
   if(_datatype && 
-     _datatype->get_vars().find(name) != _datatype->get_vars().end()) {
-    VariableDefinition vardef = _datatype->get_vars().at(name);
+     _datatype->get_vars()->find(name) != _datatype->get_vars()->end()) {
+    VariableDefinition vardef = _datatype->get_vars()->at(name);
     ret = (cys::Uint8 *) this;
     ret += vardef.offset;
   }

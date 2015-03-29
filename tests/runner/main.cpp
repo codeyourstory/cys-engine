@@ -19,7 +19,7 @@ std::vector<std::string> tests;
 
 void init_tests()
 {
-  TEST("01Tmp")
+  TEST("utils/data/datatype")
 }
 
 int call_test(std::string command);

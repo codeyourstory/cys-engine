@@ -11,18 +11,18 @@ namespace cys {
 namespace data {
 
   enum VariableType {
-    Unknow = 0,
-    UINT8  = 1,
-    UINT16 = 2,
-    UINT32 = 3,
-    UINT64 = 4,
-    SINT8  = 5,
-    SINT16 = 6,
-    SINT32 = 7,
-    SINT64 = 8,
-    FLOAT  = 9,   // on 4 bytes
-    DOUBLE = 10,  // on 8 bytes
-    STRING = 11   // std::string
+    UNKNOWN = 0,
+    UINT8   = 1,
+    UINT16  = 2,
+    UINT32  = 3,
+    UINT64  = 4,
+    SINT8   = 5,
+    SINT16  = 6,
+    SINT32  = 7,
+    SINT64  = 8,
+    FLOAT   = 9,   // on 4 bytes
+    DOUBLE  = 10,  // on 8 bytes
+    STRING  = 11   // std::string
   };
 
   struct VariableDefinition {
@@ -79,18 +79,18 @@ namespace data {
 #define DATA(ClassName) ClassName##DataType
 
 #define DATA_DEF(ClassName) \
-class DATA(ClassName) : public nge::data::DataType {\
+class DATA(ClassName) : public cys::data::DataType {\
   public:\
     ClassName##DataType();\
-  };\
+  };
   
 #define DATA_DECL(ClassName, TableName, CODE)\
-DATA(ClassName)::DATA(ClassName)() { \
+DATA(ClassName)::DATA(ClassName)() : cys::data::DataType(TableName, (EntityFactory) FACTORY(ClassName) ) { \
+  ClassName t;\
   CODE\
-  this->name = TableName ;  \
 }
 
 #define DATA_DEF_VAR(varname, type) \
-this->define_var(#varname, type);
+this->define_var(#varname, type, &t, t.get_##varname());
 
 #endif

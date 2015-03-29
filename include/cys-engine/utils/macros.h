@@ -15,12 +15,12 @@ void classname::set_##var(const type &var) {\
 }
 
 // class getter definition
-#define GETTER_DEF(var, type) type get_##var();
+#define GETTER_DEF(var, type) type *get_##var();
 
 // class getter declaration
 #define GETTER_DECL(classname, var, type) \
-type classname::get_##var() {\
-  return _##var; \
+type *classname::get_##var() {\
+  return &_##var; \
 }
 
 // both definitions

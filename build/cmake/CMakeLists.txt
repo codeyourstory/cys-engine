@@ -40,7 +40,8 @@ MACRO( TEST _target _target_folder )
   include_directories(../../tests/tests/)
   
 
-  file(MAKE_DIRECTORY ../../bin/tests/${_target}) 
+  file(MAKE_DIRECTORY ../../bin/tests/${_target})
+  target_link_libraries(${_target} cysengine)
 
   add_custom_command(TARGET ${_target} POST_BUILD 
     COMMAND ${CMAKE_COMMAND} -E copy ${_target} ../../bin/tests/${_target_folder}/test
@@ -49,6 +50,7 @@ MACRO( TEST _target _target_folder )
 ENDMACRO( TEST )
 
 TEST( 01Tmp 01Tmp )
+TEST( utils_data_datatype utils/data/datatype )
 
 # test runner
 
