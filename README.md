@@ -3,8 +3,12 @@
 # The Project
 
 CodeYourStory is a project whose purpose is:
-- to allow people to write stories through code
-- to allow people to generate videos, corresponding to the story written
+- to allow people to write stories
+- to allow people to generate:
+  - videos ( a story board for example )
+  - video games
+  - BDs
+  - Blender projects ...
 
 # The engine
 
