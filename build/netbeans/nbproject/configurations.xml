@@ -2,19 +2,6 @@
 <configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="../.." name="0">
-      <df name="include">
-        <df name="cys-engine">
-          <df name="utils">
-            <df name="database">
-              <df name="connections">
-                <in>Sqlite3Connection.h</in>
-              </df>
-              <in>AbstractConnection.h</in>
-              <in>database.h</in>
-            </df>
-          </df>
-        </df>
-      </df>
       <df name="src">
         <df name="story">
           <df name="map">
@@ -29,6 +16,11 @@
           <df name="data">
             <in>datatype.cpp</in>
           </df>
+          <df name="database">
+            <df name="connections">
+              <in>Sqlite3Connection.c</in>
+            </df>
+          </df>
         </df>
       </df>
       <df name="tests">
@@ -39,9 +31,11 @@
           <df name="01Tmp">
             <in>main.cpp</in>
           </df>
-          <df name="data">
-            <df name="datatype">
-              <in>main.cpp</in>
+          <df name="utils">
+            <df name="data">
+              <df name="datatype">
+                <in>main.cpp</in>
+              </df>
             </df>
           </df>
         </df>
@@ -73,7 +67,8 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <flagsDictionary>
-        <element flagsID="0" commonFlags="-std=c++11 -m64"/>
+        <element flagsID="0" commonFlags="-m64"/>
+        <element flagsID="1" commonFlags="-std=c++11 -m64"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -86,6 +81,8 @@
           <cTool>
             <incDir>
               <pElem>../../include</pElem>
+              <pElem>../../tests/tests</pElem>
+              <pElem>../cmake</pElem>
             </incDir>
           </cTool>
           <ccTool>
@@ -97,51 +94,45 @@
           </ccTool>
         </makeTool>
       </makefileType>
-      <item path="../../include/cys-engine/utils/database/AbstractConnection.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../include/cys-engine/utils/database/connections/Sqlite3Connection.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../include/cys-engine/utils/database/database.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="../../src/story/map/map.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="../../src/story/story.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="../../src/story/story/story.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="../../src/tmp.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
         </ccTool>
       </item>
-      <item path="../../src/utils/data/datatype.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../src/utils/data/datatype.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="../../src/utils/database/connections/Sqlite3Connection.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
       </item>
       <item path="../../tests/runner/main.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="../../tests/tests/01Tmp/main.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="../../tests/tests/utils/data/datatype/main.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="8">
+        <ccTool flags="1">
+        </ccTool>
       </item>
     </conf>
   </confs>

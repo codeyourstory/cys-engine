@@ -24,8 +24,8 @@ namespace database {
       virtual data::Entity *load_single(std::string query, data::DataType *table) = 0;
       virtual std::vector<data::Entity *>load_multiple(std::string query, data::DataType *table) = 0;
 
-      virtual int  insert(data::DataType *table, void *data) = 0;
-      virtual void update(data::DataType *table, void *data) = 0;
+      virtual int  insert(data::DataType *table, data::Entity *data) = 0;
+      virtual void update(data::DataType *table, data::Entity *data) = 0;
       
       virtual int get_max_id(std::string tablename) = 0;
 
