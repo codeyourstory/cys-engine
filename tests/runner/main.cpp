@@ -20,6 +20,7 @@ std::vector<std::string> tests;
 void init_tests()
 {
   TEST("utils/data/datatype")
+  TEST("utils/database/sqlite3")
 }
 
 int call_test(std::string command);
@@ -40,8 +41,10 @@ int main(int argc, char **argv)
 
     if(ret == 0)
       tests_ok ++;
-    else 
+    else {
       tests_failed ++;
+      printf("test %s failed with startus %d\n", tests[i].c_str(), ret);
+    }
   }
   
   printf("%d/%d tests success.\n", tests_ok, tests_failed + tests_ok);

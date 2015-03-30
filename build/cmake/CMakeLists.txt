@@ -42,6 +42,7 @@ MACRO( TEST _target _target_folder )
 
   file(MAKE_DIRECTORY ../../bin/tests/${_target})
   target_link_libraries(${_target} cysengine)
+  target_link_libraries(${_target} sqlite3)
 
   add_custom_command(TARGET ${_target} POST_BUILD 
     COMMAND ${CMAKE_COMMAND} -E copy ${_target} ../../bin/tests/${_target_folder}/test
@@ -50,6 +51,7 @@ MACRO( TEST _target _target_folder )
 ENDMACRO( TEST )
 
 TEST( utils_data_datatype utils/data/datatype )
+TEST( utils_database_sqlite3 utils/database/sqlite3 )
 
 # test runner
 
