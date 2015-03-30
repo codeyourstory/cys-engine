@@ -2,15 +2,16 @@
 <configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="../.." name="0">
-      <df name="include">
-        <df name="cys-engine">
-          <df name="utils">
-            <df name="database">
-              <df name="connections">
-                <in>Sqlite3Connection.h</in>
+      <df name="build">
+        <df name="cmake">
+          <df name="CMakeFiles">
+            <df name="2.8.12.2">
+              <df name="CompilerIdC">
+                <in>CMakeCCompilerId.c</in>
               </df>
-              <in>AbstractConnection.h</in>
-              <in>database.h</in>
+              <df name="CompilerIdCXX">
+                <in>CMakeCXXCompilerId.cpp</in>
+              </df>
             </df>
           </df>
         </df>
@@ -39,14 +40,24 @@
           <df name="01Tmp">
             <in>main.cpp</in>
           </df>
-          <df name="data">
-            <df name="datatype">
-              <in>main.cpp</in>
+          <df name="utils">
+            <df name="data">
+              <df name="datatype">
+                <in>main.cpp</in>
+              </df>
             </df>
           </df>
         </df>
       </df>
     </df>
+    <logicalFolder name="Modules"
+                   displayName="Modules"
+                   projectFiles="true"
+                   root="/usr/share/cmake-2.8/Modules">
+      <itemPath>/usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c</itemPath>
+      <itemPath>/usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp</itemPath>
+      <itemPath>/usr/share/cmake-2.8/Modules/CMakeCompilerABI.h</itemPath>
+    </logicalFolder>
     <logicalFolder name="src"
                    displayName="src"
                    projectFiles="true"
@@ -83,35 +94,8 @@
           <buildCommand>${MAKE} -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
           <executablePath></executablePath>
-          <cTool>
-            <incDir>
-              <pElem>../../include</pElem>
-            </incDir>
-          </cTool>
-          <ccTool>
-            <incDir>
-              <pElem>../../include</pElem>
-              <pElem>../../tests/tests</pElem>
-              <pElem>../cmake</pElem>
-            </incDir>
-          </ccTool>
         </makeTool>
       </makefileType>
-      <item path="../../include/cys-engine/utils/database/AbstractConnection.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../include/cys-engine/utils/database/connections/Sqlite3Connection.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../include/cys-engine/utils/database/database.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="../../src/story/map/map.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
@@ -128,7 +112,9 @@
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="../../src/utils/data/datatype.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../src/utils/data/datatype.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="../../tests/runner/main.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
@@ -141,8 +127,69 @@
       <item path="../../tests/tests/utils/data/datatype/main.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
+      <item path="../cmake/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="../cmake/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="/usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="/usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <folder path="0/src">
+        <ccTool>
+          <incDir>
+            <pElem>../../include</pElem>
+            <pElem>../../tests/tests</pElem>
+            <pElem>../cmake</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="0/tests">
+        <ccTool>
+          <incDir>
+            <pElem>../../include</pElem>
+            <pElem>../../tests/tests</pElem>
+            <pElem>../cmake</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="Modules">
+        <cTool>
+          <incDir>
+            <pElem>../cmake/CMakeFiles/CMakeTmp</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>../cmake/CMakeFiles/CMakeTmp</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="src">
+        <ccTool>
+          <incDir>
+            <pElem>../../include</pElem>
+            <pElem>../../tests/tests</pElem>
+            <pElem>../cmake</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
     </conf>
   </confs>
 </configurationDescriptor>
