@@ -49,7 +49,6 @@ MACRO( TEST _target _target_folder )
 
 ENDMACRO( TEST )
 
-TEST( 01Tmp 01Tmp )
 TEST( utils_data_datatype utils/data/datatype )
 
 # test runner
