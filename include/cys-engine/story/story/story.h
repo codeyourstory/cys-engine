@@ -7,7 +7,7 @@
 namespace cys {
 namespace story {
   
-  class Story : data::Entity {
+  class Story : public data::Entity {
   public: 
     
     Story();

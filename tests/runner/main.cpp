@@ -21,6 +21,7 @@ void init_tests()
 {
   TEST("utils/data/datatype")
   TEST("utils/database/sqlite3")
+  TEST("story-example/1")
 }
 
 int call_test(std::string command);

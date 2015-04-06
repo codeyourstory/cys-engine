@@ -29,6 +29,10 @@ add_custom_command(TARGET cysengine POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy libcysengine.a ../../bin/libcysengine.a
 )
 
+add_custom_command(TARGET cysengine POST_BUILD 
+  COMMAND ${CMAKE_COMMAND} -E copy ../../resources/sql/01-story.sql ../../bin/sql/01-story.sql
+)
+
 # TESTS AND TEST RUNNER
 
 MACRO( TEST _target _target_folder )
@@ -39,8 +43,6 @@ MACRO( TEST _target _target_folder )
   add_executable(${_target} ${_sources})
   include_directories(../../tests/tests/)
   
-
-  file(MAKE_DIRECTORY ../../bin/tests/${_target})
   target_link_libraries(${_target} cysengine)
   target_link_libraries(${_target} sqlite3)
 
@@ -52,6 +54,7 @@ ENDMACRO( TEST )
 
 TEST( utils_data_datatype utils/data/datatype )
 TEST( utils_database_sqlite3 utils/database/sqlite3 )
+TEST( storyexample_1 story-example/1 )
 
 # test runner
 

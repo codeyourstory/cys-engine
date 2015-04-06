@@ -1,0 +1,4 @@
+CREATE TABLE story(
+  id INTEGER PRIMARY KEY,
+  title VARCHAR(128)
+);

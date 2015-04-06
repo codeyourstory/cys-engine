@@ -21,7 +21,7 @@ Story::~Story()
 ACCESS_DECL(Story, id, Uint32)
 ACCESS_DECL(Story, title, std::string)
 
-FACTORY_DECL(Story)
+FACTORY_DECL(cys::story::Story)
   
 DATA_DECL(Story, "story",
   DATA_DEF_VAR(id, UINT32)
