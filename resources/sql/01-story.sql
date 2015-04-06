@@ -1,4 +1,12 @@
 CREATE TABLE story(
   id INTEGER PRIMARY KEY,
-  title VARCHAR(128)
+  title VARCHAR(128) NOT NULL
 );
+
+CREATE TABLE character(
+  id INTEGER PRIMARY KEY,
+  story_id INTEGER REFERENCES story(id) NOT NULL,
+  title VARCHAR(128) NOT NULL
+); 
+
+

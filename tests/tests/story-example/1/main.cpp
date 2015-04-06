@@ -17,6 +17,7 @@ int main(int argc, const char *argv[])
   // create the cys-engine schema
   db.execute_file("../../../sql/01-story.sql");
   
+  // create the story
   cys::story::Story story;
   cys::story::StoryDataType storydt;
 
@@ -24,6 +25,9 @@ int main(int argc, const char *argv[])
   story.set_title("First Story");
   
   db.insert(&storydt, &story);
+  
+  // create a character
+  
   
   return 0;
 }
