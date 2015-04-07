@@ -1,5 +1,5 @@
-#ifndef CYS_ENGINE__STORY_EVENT_EVENT_H
-#define	CYS_ENGINE__STORY_EVENT_EVENT_H
+#ifndef CYS_ENGINE__STORY_EVENT_CHARACTER_CHARACTER_H
+#define	CYS_ENGINE__STORY_EVENT_CHARACTER_CHARACTER_H
 
 #include <string>
 #include <cys-engine/utils/data/datatype.h>

@@ -28,7 +28,7 @@ int main(int argc, const char *argv[])
   
   db.insert(&storydt, &story);
   
-  // create a character
+  // create 2 characters
   cys::story::character::Character characters[2];
   cys::story::character::CharacterDataType characterdt;
 
@@ -45,6 +45,28 @@ int main(int argc, const char *argv[])
   
   db.insert(&characterdt, &characters[0]);
   db.insert(&characterdt, &characters[1]);
+
+  // create the born events
+  cys::story::event::Event event;
+  cys::story::event::EventDataType eventdt;
+
+  cys::story::event::character::SubjectEvent subjectevent;
+  cys::story::event::character::SubjectEventDataType subjecteventdt;
+
+  event.set_id(1);
+  event.set_story_id(*(story.get_id()));
+  event.set_type(cys::story::event::CHARACTER);
+  event.set_date("0");
+
+  subjectevent.set_id(1);
+  subjectevent.set_story_id(*(story.get_id()));
+  subjectevent.set_event_id(*(event.get_id()));
+  subjectevent.set_type(cys::story::event::character::BORN);
+  subjectevent.set_character_id(*(characters[0].get_id()));
+  //subjectevent.set_text("");
+
+  db.insert(&eventdt, &event);
+  db.insert(&subjecteventdt, &subjectevent);
 
   return 0;
 }
