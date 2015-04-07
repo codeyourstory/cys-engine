@@ -27,7 +27,22 @@ int main(int argc, const char *argv[])
   db.insert(&storydt, &story);
   
   // create a character
+  cys::story::character::Character characters[2];
+  cys::story::character::CharacterDataType characterdt;
+
+  characters[0].set_id(1);
+  characters[0].set_story_id(1);
+  characters[0].set_name("Sir Mc Yolo");
+  characters[0].set_gender(cys::story::character::MALE);
+
+
+  characters[1].set_id(2);
+  characters[1].set_story_id(1);
+  characters[1].set_name("The Pink Warlord");
+  characters[1].set_gender(cys::story::character::MALE);
   
-  
+  db.insert(&characterdt, &characters[0]);
+  db.insert(&characterdt, &characters[1]);
+
   return 0;
 }

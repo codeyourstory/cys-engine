@@ -7,6 +7,7 @@
  */
 
 #include <cys-engine/story/story/story.h>
+#include <cys-engine/story/character/character.h>
 #include <cys-engine/story/map/map.h>
 
 #endif
