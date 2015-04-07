@@ -13,11 +13,6 @@ Event::~Event()
   
 }
 
-ACCESS_DEF(id, Uint32)
-ACCESS_DEF(story_id, Uint32)
-ACCESS_DEF(type, Uint8)
-ACCESS_DEF(date, std::string); 
-
 ACCESS_DECL(Event, id, Uint32)
 ACCESS_DECL(Event, story_id, Uint32)
 ACCESS_DECL(Event, type, Uint8)

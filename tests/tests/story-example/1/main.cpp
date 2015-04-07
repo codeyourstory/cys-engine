@@ -16,6 +16,8 @@ int main(int argc, const char *argv[])
   cys::database::SQLite3Connection db("tmp/db");
   // create the cys-engine schema
   db.execute_file("../../../sql/01-story.sql");
+  db.execute_file("../../../sql/02-character.sql");
+  db.execute_file("../../../sql/03-events.sql");
   
   // create the story
   cys::story::Story story;
