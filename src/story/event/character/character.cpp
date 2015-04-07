@@ -22,7 +22,7 @@ ACCESS_DECL(SubjectEvent, text, std::string)
 
 FACTORY_DECL(cys::story::event::character::SubjectEvent)
   
-DATA_DECL(SubjectEvent, "event",
+DATA_DECL(SubjectEvent, "event_character_subject",
   DATA_DEF_VAR(id, UINT32)
   DATA_DEF_VAR(story_id, UINT32)
   DATA_DEF_VAR(event_id, UINT32)
@@ -57,7 +57,7 @@ ACCESS_DECL(SubjectTargetEvent, text, std::string)
 
 FACTORY_DECL(cys::story::event::character::SubjectTargetEvent)
   
-DATA_DECL(SubjectTargetEvent, "event",
+DATA_DECL(SubjectTargetEvent, "event_character_suject_target",
   DATA_DEF_VAR(id, UINT32)
   DATA_DEF_VAR(story_id, UINT32)
   DATA_DEF_VAR(event_id, UINT32)
