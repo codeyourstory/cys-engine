@@ -29,9 +29,12 @@ add_custom_command(TARGET cysengine POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy libcysengine.a ../../bin/libcysengine.a
 )
 
-add_custom_command(TARGET cysengine POST_BUILD 
-  COMMAND ${CMAKE_COMMAND} -E copy ../../resources/sql/01-story.sql ../../bin/sql/01-story.sql
-)
+#add_custom_command(TARGET cysengine POST_BUILD 
+#  COMMAND ${CMAKE_COMMAND} -E copy ../../resources/sql/01-story.sql ../../bin/sql/01-story.sql
+#)
+file(MAKE_DIRECTORY ../../bin)
+file(MAKE_DIRECTORY ../../bin/sql)
+file(COPY ../../resources/sql DESTINATION ../../bin/)
 
 # TESTS AND TEST RUNNER
 

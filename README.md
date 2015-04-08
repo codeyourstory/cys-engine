@@ -19,6 +19,10 @@ Purposes of cys-engine:
 - manage maps
 - manage events / timeline
 
+# Requirements
+
+libsqlite3-dev
+
 # Compilation
 
 The compilation will be made via cmake.
