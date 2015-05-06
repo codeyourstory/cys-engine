@@ -4,11 +4,27 @@
     <df root="../.." name="0">
       <df name="src">
         <df name="story">
+          <df name="character">
+            <in>character.cpp</in>
+          </df>
+          <df name="entities">
+            <df name="character">
+              <in>character.cpp</in>
+            </df>
+            <in>story.cpp</in>
+          </df>
+          <df name="event">
+            <df name="character">
+              <in>character.cpp</in>
+            </df>
+            <in>event.cpp</in>
+          </df>
           <df name="map">
             <in>map.cpp</in>
           </df>
           <df name="story">
             <in>story.cpp</in>
+            <in>story_entity.cpp</in>
           </df>
           <in>story.cpp</in>
         </df>
@@ -64,6 +80,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../../resources/entities/character.yml</itemPath>
+    <itemPath>../../resources/entities/story.yml</itemPath>
   </logicalFolder>
   <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
   <sourceRootList>
@@ -88,13 +106,6 @@
           <buildCommand>${MAKE} -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
           <executablePath></executablePath>
-          <cTool>
-            <incDir>
-              <pElem>../../include</pElem>
-              <pElem>../../tests/tests</pElem>
-              <pElem>../cmake</pElem>
-            </incDir>
-          </cTool>
           <ccTool>
             <incDir>
               <pElem>../../include</pElem>
@@ -104,6 +115,35 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../../src/story/character/character.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../../src/story/entities/character/character.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../../src/story/entities/story.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../../src/story/event/character/character.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../../src/story/event/event.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
       <item path="../../src/story/map/map.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
@@ -116,21 +156,34 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="../../src/story/story/story_entity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
       <item path="../../src/tmp.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="../../src/utils/data/datatype.cpp" ex="false" tool="1" flavor2="4">
+      <item path="../../src/utils/data/datatype.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="../../src/utils/database/AbstractConnection.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="../../src/utils/database/connections/Sqlite3Connection.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="../../tests/runner/main.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
@@ -143,7 +196,9 @@
       <item path="../../tests/tests/story-example/1/main.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="../../tests/tests/utils/data/datatype/main.cpp"
             ex="false"
@@ -155,7 +210,9 @@
       <item path="../../tests/tests/utils/database/sqlite3/main.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
     </conf>
   </confs>

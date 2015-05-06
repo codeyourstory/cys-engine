@@ -1,0 +1,10 @@
+entities:
+# id is already set
+  - name:  Story   # this is the classname
+    table: story
+    attributes:
+      - {type: string, name: title}
+    header_root: ../../include/
+    header: cys-engine/story/entities/story.h
+    src:    ../../src/story/entities/story.cpp
+    namespace: [cys, story, entities]

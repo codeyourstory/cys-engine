@@ -1,10 +1,9 @@
 #include <cys-engine/cys-engine.h>
 #include <string>
 
-#include "cys-engine/utils/database/connections/Sqlite3Connection.h"
-
 using namespace cys;
-using namespace cys::data;
+using namespace cys::story;
+using namespace cys::story::entities;
 using namespace std;
 
 int main(int argc, const char *argv[])

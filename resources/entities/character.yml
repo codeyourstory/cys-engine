@@ -1,0 +1,13 @@
+entities:
+# id is already set
+  - name:  Character   # this is the classname
+    table: character
+    attributes:
+      - {name: story_id, type: uint32}
+      - {name: title, type: string}
+      - {name: name, type: string}
+      - {name: gender, type: uint8}
+    header_root: ../../include/
+    header: cys-engine/story/entities/character/character.h
+    src:    ../../src/story/entities/character/character.cpp
+    namespace: [cys, story, entities, character]
