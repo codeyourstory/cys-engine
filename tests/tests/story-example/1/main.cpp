@@ -12,11 +12,17 @@ int main(int argc, const char *argv[])
   system("mkdir -p ./tmp");
 
   // create the db
-  cys::database::SQLite3Connection db("tmp/db");
+  nge::orm::database::connections::Sqlite3Connection db;
+
+  if(!db.open("tmp/db.sqlite3")) {
+    cout << "Can't open tmp/db.sqlite3" << endl;
+    return -1;
+  }
+  
+  db.create_table();
+  
   // create the cys-engine schema
-  db.execute_file("../../../sql/01-story.sql");
-  db.execute_file("../../../sql/02-character.sql");
-  db.execute_file("../../../sql/03-events.sql");
+    
   
   // create the story
   cys::story::Story story;

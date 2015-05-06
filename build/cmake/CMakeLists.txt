@@ -55,8 +55,6 @@ MACRO( TEST _target _target_folder )
 
 ENDMACRO( TEST )
 
-TEST( utils_data_datatype utils/data/datatype )
-TEST( utils_database_sqlite3 utils/database/sqlite3 )
 TEST( storyexample_1 story-example/1 )
 
 # test runner
