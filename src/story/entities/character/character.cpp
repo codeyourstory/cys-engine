@@ -15,8 +15,12 @@ CharacterDefinition::CharacterDefinition()
 
 // 
 
-Character::Character(nge::orm::ORM *orm):
-nge::orm::Entity(orm)
+Character::Character()
+{
+}
+
+Character::Character(nge::orm::Context *context):
+nge::orm::Entity(context)
 {
   _story_id = 0;
   _gender = 0;
@@ -86,10 +90,10 @@ nge::entity::EntityDefinition *Character::__get_definition() const
 {
   nge::entity::EntityDefinition *ret = nullptr;
   
-  if(!_orm) return ret;
+  if(!_context) return ret;
   
-  auto it = _orm->get_entity_definitions()->find("character"),
-       end = _orm->get_entity_definitions()->end();
+  auto it = _context->get_entity_definitions()->find("character"),
+       end = _context->get_entity_definitions()->end();
   if(it != end) {
     // found => to return
     
@@ -101,7 +105,7 @@ nge::entity::EntityDefinition *Character::__get_definition() const
     // so we create the definition
     ret = new CharacterDefinition();
     // and we add it in the orm
-    _orm->get_entity_definitions()->insert(std::make_pair(ret->get_table(), ret));
+    _context->get_entity_definitions()->insert(std::make_pair(ret->get_table(), ret));
   }
   
   return ret;

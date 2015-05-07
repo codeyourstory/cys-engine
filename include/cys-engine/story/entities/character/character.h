@@ -19,7 +19,8 @@ public:
 class Character : public nge::orm::Entity {
 public:
 
-  Character(nge::orm::ORM *orm);
+  Character();
+  Character(nge::orm::Context *context);
   nge::entity::EntityDefinition *__get_definition() const;
 
   void set_story_id(uint32_t);

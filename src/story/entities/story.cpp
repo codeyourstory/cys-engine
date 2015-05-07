@@ -12,8 +12,12 @@ StoryDefinition::StoryDefinition()
 
 // 
 
-Story::Story(nge::orm::ORM *orm):
-nge::orm::Entity(orm)
+Story::Story()
+{
+}
+
+Story::Story(nge::orm::Context *context):
+nge::orm::Entity(context)
 {
 }
 
@@ -36,10 +40,10 @@ nge::entity::EntityDefinition *Story::__get_definition() const
 {
   nge::entity::EntityDefinition *ret = nullptr;
   
-  if(!_orm) return ret;
+  if(!_context) return ret;
   
-  auto it = _orm->get_entity_definitions()->find("story"),
-       end = _orm->get_entity_definitions()->end();
+  auto it = _context->get_entity_definitions()->find("story"),
+       end = _context->get_entity_definitions()->end();
   if(it != end) {
     // found => to return
     
@@ -51,7 +55,7 @@ nge::entity::EntityDefinition *Story::__get_definition() const
     // so we create the definition
     ret = new StoryDefinition();
     // and we add it in the orm
-    _orm->get_entity_definitions()->insert(std::make_pair(ret->get_table(), ret));
+    _context->get_entity_definitions()->insert(std::make_pair(ret->get_table(), ret));
   }
   
   return ret;

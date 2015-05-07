@@ -1,5 +1,6 @@
 #include <cys-engine/cys-engine.h>
 #include <string>
+#include <iostream>
 
 using namespace cys;
 using namespace cys::story;
@@ -19,59 +20,38 @@ int main(int argc, const char *argv[])
     return -1;
   }
   
-  db.create_table();
   
   // create the cys-engine schema
-    
+  db.create_table(new cys::story::entities::StoryDefinition());
+  
   
   // create the story
-  cys::story::Story story;
-  cys::story::StoryDataType storydt;
-
+  cys::story::entities::Story story(db.get_context());
+  
   story.set_id(1);
   story.set_title("First Story");
   
-  db.insert(&storydt, &story);
+  db.insert(story);
   
   // create 2 characters
-  cys::story::character::Character characters[2];
-  cys::story::character::CharacterDataType characterdt;
+  cys::story::entities::character::Character characters[2];
 
+  characters[0].__set_context(db.get_context());
+  characters[1].__set_context(db.get_context());
+  
   characters[0].set_id(1);
   characters[0].set_story_id(1);
   characters[0].set_name("Sir Mc Yolo");
-  characters[0].set_gender(cys::story::character::MALE);
+  //characters[0].set_gender(cys::story::character::MALE);
 
 
   characters[1].set_id(2);
   characters[1].set_story_id(1);
   characters[1].set_name("The Pink Warlord");
-  characters[1].set_gender(cys::story::character::MALE);
+  //characters[1].set_gender(cys::story::character::MALE);
   
-  db.insert(&characterdt, &characters[0]);
-  db.insert(&characterdt, &characters[1]);
-
-  // create the born events
-  cys::story::event::Event event;
-  cys::story::event::EventDataType eventdt;
-
-  cys::story::event::character::SubjectEvent subjectevent;
-  cys::story::event::character::SubjectEventDataType subjecteventdt;
-
-  event.set_id(1);
-  event.set_story_id(*(story.get_id()));
-  event.set_type(cys::story::event::CHARACTER);
-  event.set_date("0");
-
-  subjectevent.set_id(1);
-  subjectevent.set_story_id(*(story.get_id()));
-  subjectevent.set_event_id(*(event.get_id()));
-  subjectevent.set_type(cys::story::event::character::BORN);
-  subjectevent.set_character_id(*(characters[0].get_id()));
-  //subjectevent.set_text("");
-
-  db.insert(&eventdt, &event);
-  db.insert(&subjecteventdt, &subjectevent);
+  db.insert(characters[0]);
+  db.insert(characters[1]);
 
   return 0;
 }

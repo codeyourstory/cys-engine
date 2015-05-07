@@ -18,7 +18,8 @@ public:
 class Story : public nge::orm::Entity {
 public:
 
-  Story(nge::orm::ORM *orm);
+  Story();
+  Story(nge::orm::Context *context);
   nge::entity::EntityDefinition *__get_definition() const;
 
   void set_title(std::string);

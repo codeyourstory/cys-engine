@@ -47,6 +47,8 @@ MACRO( TEST _target _target_folder )
   include_directories(../../tests/tests/)
   
   target_link_libraries(${_target} cysengine)
+  target_link_libraries(${_target} ngengine-orm)
+  target_link_libraries(${_target} ngengine-entity)
   target_link_libraries(${_target} sqlite3)
 
   add_custom_command(TARGET ${_target} POST_BUILD 
