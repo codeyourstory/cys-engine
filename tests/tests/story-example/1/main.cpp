@@ -23,6 +23,7 @@ int main(int argc, const char *argv[])
   
   // create the cys-engine schema
   db.create_table(new cys::story::entities::StoryDefinition());
+  db.create_table(new cys::story::entities::character::CharacterDefinition());
   
   
   // create the story
@@ -42,12 +43,13 @@ int main(int argc, const char *argv[])
   characters[0].set_id(1);
   characters[0].set_story_id(1);
   characters[0].set_name("Sir Mc Yolo");
+  characters[0].set_gender(0);
   //characters[0].set_gender(cys::story::character::MALE);
-
 
   characters[1].set_id(2);
   characters[1].set_story_id(1);
   characters[1].set_name("The Pink Warlord");
+  characters[0].set_gender(1);
   //characters[1].set_gender(cys::story::character::MALE);
   
   db.insert(characters[0]);
